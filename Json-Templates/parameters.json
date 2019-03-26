@@ -1,0 +1,409 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus2"
+        },
+        "networkInterfaceName": {
+            "value": "dbnode1-apis-nic-01"
+        },
+        "enableAcceleratedNetworking": {
+            "value": true
+        },
+        "networkSecurityGroupName": {
+            "value": "dbnode1-apis-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "RDP",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "3389"
+                    }
+                }
+            ]
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/6a0bfde2-e124-4e48-9ca3-055a6da7e0fc/resourceGroups/NETWORK_USGA_PD/providers/Microsoft.Network/virtualNetworks/usga-pd-eus2"
+        },
+        "subnetName": {
+            "value": "GHIN_DB_CLUS_APIS"
+        },
+        "publicIpAddressName": {
+            "value": "dbnode1-apis-pip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "dbnode1-apis"
+        },
+        "virtualMachineRG": {
+            "value": "GHIN_DB_CLUS_APIS"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "dataDisks": {
+            "value": [
+                {
+                    "lun": 0,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_SystemDB_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 1,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_CRSData_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 2,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_CRSLog_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 3,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_HCSData_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 4,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_HCSData_02",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 5,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_HCSData_03",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 6,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_HCSData_04",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 7,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_HCSLog_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 8,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_SFData_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 9,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_SFLog_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 10,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_RDSData_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 11,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_RDSLog_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 12,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_TempDB_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 13,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_TempDB_02",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 14,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_TempDB_03",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 15,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_TempDB_04",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 16,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_BackUp_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 17,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "dbnode1-apis_BackUp_02",
+                    "storageAccountType": null
+                }               
+            ]
+        },
+        "dataDiskResources": {
+            "value": [
+                {
+                    "name": "dbnode1-apis_SystemDB_01",
+                    "diskSizeGB": 50,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_CRSData_01",
+                    "diskSizeGB": 50,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_CRSLog_01",
+                    "diskSizeGB": 50,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_HCSData_01",
+                    "diskSizeGB": 1023,
+                    "sku": "Premium_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_HCSData_02",
+                    "diskSizeGB": 1023,
+                    "sku": "Premium_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_HCSData_03",
+                    "diskSizeGB": 1023,
+                    "sku": "Premium_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_HCSData_04",
+                    "diskSizeGB": 1023,
+                    "sku": "Premium_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_HCSLog_01",
+                    "diskSizeGB": 500,
+                    "sku": "Premium_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_SFData_01",
+                    "diskSizeGB": 1023,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_SFLog_01",
+                    "diskSizeGB": 1023,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_RDSData_01",
+                    "diskSizeGB": 1023,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_RDSLog_01",
+                    "diskSizeGB": 1023,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_TempDB_01",
+                    "diskSizeGB": 1023,
+                    "sku": "Premium_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_TempDB_02",
+                    "diskSizeGB": 1023,
+                    "sku": "Premium_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_TempDB_03",
+                    "diskSizeGB": 1023,
+                    "sku": "Premium_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_TempDB_04",
+                    "diskSizeGB": 1023,
+                    "sku": "Premium_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_BackUp_01",
+                    "diskSizeGB": 4088,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "dbnode1-apis_BackUp_02",
+                    "diskSizeGB": 4088,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                }                                                
+            ]
+        },
+        "virtualMachineSize": {
+            "value": "Standard_DS15_v2"
+        },
+        "adminUsername": {
+            "value": "usgaadmin"
+        },
+        "adminPassword": {
+            "value": "8brkGThPQw8v"
+        },
+        "availabilitySetName": {
+            "value": "ghin-db-clus-as-apis"
+        },
+        "availabilitySetPlatformFaultDomainCount": {
+            "value": 2
+        },
+        "availabilitySetPlatformUpdateDomainCount": {
+            "value": 5
+        },
+        "backupVaultName": {
+            "value": "usga-backup-vault"
+        },
+        "backupFabricName": {
+            "value": "Azure"
+        },
+        "backupVaultRGName": {
+            "value": "USGA_BACKUP_VAULT"
+        },
+        "backupVaultRGIsNew": {
+            "value": false
+        },
+        "backupPolicyName": {
+            "value": "DefaultPolicy2"
+        },
+        "backupItemName": {
+            "value": "vm;iaasvmcontainerv2;GHIN_DB_CLUS_APIS;dbnode1-apis"
+        }
+    }
+}

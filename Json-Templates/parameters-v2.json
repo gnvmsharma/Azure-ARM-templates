@@ -1,0 +1,213 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus2"
+        },
+        "networkInterfaceName": {
+            "value": "usga-whse-apis-nic-01"
+        },
+        "enableAcceleratedNetworking": {
+            "value": true
+        },
+        "networkSecurityGroupName": {
+            "value": "usga-whse-apis-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "RDP",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "3389"
+                    }
+                }
+            ]
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/6a0bfde2-e124-4e48-9ca3-055a6da7e0fc/resourceGroups/NETWORK_USGA_PD/providers/Microsoft.Network/virtualNetworks/usga-pd-eus2"
+        },
+        "subnetName": {
+            "value": "USGA_WHSE_APIS"
+        },
+        "publicIpAddressName": {
+            "value": "usga-whse-apis-pip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "usga-whse-apis"
+        },
+        "virtualMachineRG": {
+            "value": "USGA_WHSE_APIS"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "dataDisks": {
+            "value": [
+                {
+                    "lun": 0,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "usga-whse-apis_Data1_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 1,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "usga-whse-apis_Data1_02",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 2,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "usga-whse-apis_Data1_03",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 3,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "usga-whse-apis_Data2_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 4,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "usga-whse-apis_Data3_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 5,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "usga-whse-apis_TempDB_01",
+                    "storageAccountType": null
+                },
+                {
+                    "lun": 6,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "usga-whse-apis_Log_01",
+                    "storageAccountType": null
+                }                
+            ]
+        },
+        "dataDiskResources": {
+            "value": [
+                {
+                    "name": "usga-whse-apis_Data1_01",
+                    "diskSizeGB": 4088,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "usga-whse-apis_Data1_02",
+                    "diskSizeGB": 4088,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "usga-whse-apis_Data1_03",
+                    "diskSizeGB": 1023,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "usga-whse-apis_Data2_01",
+                    "diskSizeGB": 4088,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "usga-whse-apis_Data3_01",
+                    "diskSizeGB": 4088,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },              
+                {
+                    "name": "usga-whse-apis_TempDB_01",
+                    "diskSizeGB": 2096,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                },
+                {
+                    "name": "usga-whse-apis_Log_01",
+                    "diskSizeGB": 1096,
+                    "sku": "Standard_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                }                             
+            ]
+        },
+        "virtualMachineSize": {
+            "value": "Standard_DS15_v2"
+        },
+        "adminUsername": {
+            "value": "usgaadmin"
+        },
+        "adminPassword": {
+            "value": "8brkGThPQw8v"
+        },       
+        "backupVaultName": {
+            "value": "usga-backup-vault"
+        },
+        "backupFabricName": {
+            "value": "Azure"
+        },
+        "backupVaultRGName": {
+            "value": "USGA_BACKUP_VAULT"
+        },
+        "backupVaultRGIsNew": {
+            "value": false
+        },
+        "backupPolicyName": {
+            "value": "DefaultPolicy2"
+        },
+        "backupItemName": {
+            "value": "vm;iaasvmcontainerv2;USGA_WHSE_APIS;usga-whse-apis"
+        }
+    }
+}
